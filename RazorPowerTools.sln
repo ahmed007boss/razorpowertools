@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87488532-49D6-4343-98C6-A3151C0763C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPowerTools", "RazorPowerTools\src\RazorPowerTools.csproj", "{72018E84-1622-451D-A204-9F2121C512B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPowerTools.VSIX", "src\RazorPowerTools.VSIX\RazorPowerTools.VSIX.csproj", "{DE651451-2F3B-4096-888B-124F0F227E21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPowerTools.ControllerActionGenerator", "src\RazorPowerTools.ControllerActionGenerator\RazorPowerTools.ControllerActionGenerator.csproj", "{37E406DF-EB51-434E-867E-4C6A1EA28D85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,15 +15,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72018E84-1622-451D-A204-9F2121C512B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72018E84-1622-451D-A204-9F2121C512B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72018E84-1622-451D-A204-9F2121C512B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72018E84-1622-451D-A204-9F2121C512B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE651451-2F3B-4096-888B-124F0F227E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE651451-2F3B-4096-888B-124F0F227E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE651451-2F3B-4096-888B-124F0F227E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE651451-2F3B-4096-888B-124F0F227E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E406DF-EB51-434E-867E-4C6A1EA28D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E406DF-EB51-434E-867E-4C6A1EA28D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E406DF-EB51-434E-867E-4C6A1EA28D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E406DF-EB51-434E-867E-4C6A1EA28D85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{72018E84-1622-451D-A204-9F2121C512B4} = {87488532-49D6-4343-98C6-A3151C0763C6}
+		{DE651451-2F3B-4096-888B-124F0F227E21} = {87488532-49D6-4343-98C6-A3151C0763C6}
+		{37E406DF-EB51-434E-867E-4C6A1EA28D85} = {87488532-49D6-4343-98C6-A3151C0763C6}
 	EndGlobalSection
 EndGlobal
