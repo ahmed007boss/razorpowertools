@@ -99,37 +99,45 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         private void MenuItemCallback(object sender, EventArgs e)
         {
 
-
-
-
-            var x = ClassesMetadata.GetClasses().ToList();
-            var t = x.Select(d => new ControllerType
+            try
             {
-                Name = d.Name,
-                Functions = d.Children.OfType<CodeFunction2>().ToList()
-                .Where(func => func.Access == vsCMAccess.vsCMAccessPublic && func.FunctionKind == vsCMFunction.vsCMFunctionFunction)
-            .Select(fun => new ControllerAction
+                var x = ClassesMetadata.GetClasses().ToList();
+                var t = x.Select(d => new ControllerType
+                {
+                    Name = d.Name,
+                    Functions = d.Children.OfType<CodeFunction2>().ToList()
+                    .Where(func => func.Access == vsCMAccess.vsCMAccessPublic && func.FunctionKind == vsCMFunction.vsCMFunctionFunction)
+                .Select(fun => new ControllerAction
+                {
+                    ControllerName = d.Name,
+                    Name = fun.Name,
+                    returnType = (fun.Type.CodeType as CodeClass2).Name,
+                    ActionVerb = GetVerb(fun),
+                    Parameters = fun.Parameters.OfType<CodeParameter2>().ToList()
+                .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type.CodeType.Name })
+                .ToList()
+                }).ToList()
+                });
+
+
+
+                System.Windows.Window s = new ActionSelectorDialogWindow(t.ToList(), InsertText);
+
+                s.ShowDialog();
+            }
+            catch (Exception ex)
             {
-                ControllerName = d.Name,
-                Name = fun.Name,
-                returnType = (fun.Type.CodeType as CodeClass2).Name,
-                ActionVerb = GetVerb(fun),
-                Parameters = fun.Parameters.OfType<CodeParameter2>()
-            .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type.CodeType.Name })})});
 
 
-
-            System.Windows.Window s = new ActionSelectorDialogWindow(t.ToList(), InsertText);
-
-            s.ShowDialog();
+            }
         }
 
         public string GetVerb(CodeFunction2 d)
         {
-     
-          
+
+
             List<CodeAttribute2> codeAttributes2 = d.Attributes.OfType<CodeAttribute2>().ToList();
-       
+
             var attrs = codeAttributes2.Select(attr => attr.Name).ToList();
             var result = "Get";
             if (attrs.Contains("HttpPost"))

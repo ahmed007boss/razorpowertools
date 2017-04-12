@@ -2,7 +2,7 @@
 {
     public class ControllerType
     {
-        public System.Collections.Generic.IEnumerable<ControllerAction> Functions { get; set; }
+        public System.Collections.Generic.List<ControllerAction> Functions { get; set; }
         public string Name { get;  set; }
     }
 }

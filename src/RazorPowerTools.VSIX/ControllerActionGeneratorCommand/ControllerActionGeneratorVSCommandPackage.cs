@@ -69,8 +69,11 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         /// </summary>
         protected override void Initialize()
         {
-            ControllerActionGeneratorVSCommand.Initialize(this);
-            base.Initialize();
+          
+                ControllerActionGeneratorVSCommand.Initialize(this);
+                base.Initialize();
+
+            
         }
 
         #endregion

@@ -7,7 +7,7 @@ namespace RazorPowerTools.ControllerActionGenerator
         public string ActionVerb { get; set; }
         public string ControllerName { get; set; }
         public string Name { get; set; }
-        public System.Collections.Generic.IEnumerable<ControllerActionParameter> Parameters { get; set; }
+        public System.Collections.Generic.List<ControllerActionParameter> Parameters { get; set; }
         public string returnType { get; set; }
 
 
