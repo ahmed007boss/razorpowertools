@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Linq;
 using EnvDTE;
 using EnvDTE80;
+using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using RazorPowerTools.ControllerActionGenerator;
@@ -120,10 +121,20 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 });
 
 
+                DialogWindow s = new DialogWindow();
 
-                System.Windows.Window s = new ActionSelectorDialogWindow(t.ToList(), InsertText);
 
+                s.MaxHeight = 340;
+                s.MinHeight = 340;
+                s.MaxWidth = 800;
+                s.MinWidth = 300;
+                s.Title = "Generate From Action";
+                var content = new ActionSelectorDialogWindow(t.ToList(), InsertText);
+                content.ActionToClose = s.Close;
+                s.Content = content;
                 s.ShowDialog();
+
+
             }
             catch (Exception ex)
             {
@@ -167,14 +178,14 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         }
         public void InsertText(string textToInsert)
         {
-            var provider = ServiceProvider.GetService(typeof(DTE)) as DTE2;
+            var provider = ServiceProvider.GetService(typeof(DTE)) as DTE;
 
-            if (provider == null || provider.ActiveDocument == null) return;
+            //if (provider == null || provider.ActiveDocument == null) return;
 
-            if (provider.UndoContext.IsOpen)
-                provider.UndoContext.Close();
+            //if (provider.UndoContext.IsOpen)
+            //    provider.UndoContext.Close();
 
-            provider.UndoContext.Open("Generate Action");
+            //provider.UndoContext.Open("Generate Action");
 
             try
             {
@@ -195,7 +206,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
             }
             finally
             {
-                provider.UndoContext.Close();
+                //    provider.UndoContext.Close();
             }
         }
     }

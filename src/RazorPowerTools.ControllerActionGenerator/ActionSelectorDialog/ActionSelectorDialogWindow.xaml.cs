@@ -20,26 +20,34 @@ namespace RazorPowerTools.ControllerActionGenerator
     /// <summary>
     /// Interaction logic for ActionSelectorDialogWindow.xaml
     /// </summary>
-    public partial class ActionSelectorDialogWindow : Window
+    public partial class ActionSelectorDialogWindow : UserControl
     {
         public Action<string> ActionToDo { get; set; }
-
+        public Action ActionToClose { get; set; }
         public ObservableCollection<IGenerationTemplate> Templates { get; set; }
         public ObservableCollection<ControllerType> Controllers { get; set; } = new ObservableCollection<ControllerType>();
         public ActionSelectorDialogWindow(List<ControllerType> controllers, Action<string> actionToDo)
         {
-            foreach (var item in controllers)
+            try
             {
-                Controllers.Add(item);
-            }
-            ActionToDo = actionToDo;
-            Templates = new ObservableCollection<IGenerationTemplate>();
+                foreach (var item in controllers)
+                {
+                    Controllers.Add(item);
+                }
+                ActionToDo = actionToDo;
+                Templates = new ObservableCollection<IGenerationTemplate>();
 
-            Templates.Add(new UrlActionGenerationTemplate());
-            Templates.Add(new HtmlActionGenerationTemplate());
-            Templates.Add(new HtmlActionLinkGenerationTemplate());
-            Templates.Add(new AjaxActionLinkGenerationTemplate());
-            Templates.Add(new HtmlFormGenerationTemplate());
+                Templates.Add(new UrlActionGenerationTemplate());
+                Templates.Add(new HtmlActionGenerationTemplate());
+                Templates.Add(new HtmlActionLinkGenerationTemplate());
+                Templates.Add(new AjaxActionLinkGenerationTemplate());
+                Templates.Add(new HtmlFormGenerationTemplate());
+            }
+            catch (Exception e)
+            {
+
+              
+            }
             InitializeComponent();
 
 
@@ -59,13 +67,15 @@ namespace RazorPowerTools.ControllerActionGenerator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            ActionToClose?.Invoke();
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
+            ActionToClose?.Invoke();
             ActionToDo?.Invoke(TextBox_result.Text);
-            this.Close();
         }
 
         private void comboBox_templatesOractions_SelectionChanged(object sender, SelectionChangedEventArgs e)

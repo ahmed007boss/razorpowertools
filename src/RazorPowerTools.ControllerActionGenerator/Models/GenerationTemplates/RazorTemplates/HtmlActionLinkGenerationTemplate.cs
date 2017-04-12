@@ -16,5 +16,11 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
                 return $"@Html.ActionLink(\"Title Here\",\"{action.Name}\",\"{action.ControllerName}\")";
             }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }

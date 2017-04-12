@@ -18,5 +18,11 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
                 return $"@Ajax.ActionLink(\"Title Here\",\"{action.Name}\",\"{action.ControllerName}\",null, new AjaxOptions() {{ UpdateTargetId = \"DivId\",HttpMethod = \"{action.ActionVerb.ToUpper()}\",InsertionMode=InsertionMode.Replace}})";
             }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }

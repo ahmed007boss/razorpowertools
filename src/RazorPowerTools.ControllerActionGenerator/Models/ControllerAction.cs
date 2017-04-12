@@ -12,7 +12,10 @@ namespace RazorPowerTools.ControllerActionGenerator
 
 
         public string Signature { get { return $"Public {returnType} {Name}({string.Join(",", Parameters.Select(d => d.TypeName + " " + d.Name))});"; } }
-
+        public override string ToString()
+        {
+            return Name;
+        }
 
 
 

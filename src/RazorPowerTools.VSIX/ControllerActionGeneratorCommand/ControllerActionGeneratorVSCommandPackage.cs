@@ -40,8 +40,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(ControllerActionGeneratorVSCommandPackage.PackageGuidString)]
-    [ProvideAutoLoad(Microsoft.VisualStudio.Shell.Interop.UIContextGuids.SolutionExists)]
+    [Guid(PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class ControllerActionGeneratorVSCommandPackage : Package
     {
@@ -68,12 +67,9 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         /// where you can put all the initialization code that rely on services provided by VisualStudio.
         /// </summary>
         protected override void Initialize()
-        {
-          
-                ControllerActionGeneratorVSCommand.Initialize(this);
-                base.Initialize();
-
-            
+       {         
+               ControllerActionGeneratorVSCommand.Initialize(this);
+                base.Initialize();          
         }
 
         #endregion

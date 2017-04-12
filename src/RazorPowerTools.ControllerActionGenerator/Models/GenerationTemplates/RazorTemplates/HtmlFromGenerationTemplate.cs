@@ -24,5 +24,11 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
             return result;
 
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }
