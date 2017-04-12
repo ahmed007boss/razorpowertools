@@ -60,13 +60,7 @@ namespace RazorPowerTools.VSIX
         }
 
 
-        private static bool IsNamespaceable(vsCMElement kind)
-        {
-            return (kind == vsCMElement.vsCMElementClass
-                    || kind == vsCMElement.vsCMElementEnum
-                    || kind == vsCMElement.vsCMElementInterface
-                    || kind == vsCMElement.vsCMElementStruct);
-        }
+    
 
         /// <summary>
         /// Recursively gets all the ProjectItem objects in a list of projectitems from a Project

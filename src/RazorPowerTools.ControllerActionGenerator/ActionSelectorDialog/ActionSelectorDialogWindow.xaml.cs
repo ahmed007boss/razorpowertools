@@ -38,7 +38,8 @@ namespace RazorPowerTools.ControllerActionGenerator
             Templates.Add(new UrlActionGenerationTemplate());
             Templates.Add(new HtmlActionGenerationTemplate());
             Templates.Add(new HtmlActionLinkGenerationTemplate());
-
+            Templates.Add(new AjaxActionLinkGenerationTemplate());
+            Templates.Add(new HtmlFormGenerationTemplate());
             InitializeComponent();
 
 

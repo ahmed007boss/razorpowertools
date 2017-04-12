@@ -5,6 +5,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
@@ -99,6 +100,8 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         {
 
 
+
+
             var x = ClassesMetadata.GetClasses().ToList();
             var t = x.Select(d => new ControllerType
             {
@@ -110,11 +113,9 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 ControllerName = d.Name,
                 Name = fun.Name,
                 returnType = (fun.Type.CodeType as CodeClass2).Name,
-
+                ActionVerb = GetVerb(fun),
                 Parameters = fun.Parameters.OfType<CodeParameter2>()
-            // .Where(prm => prm.ParameterKind ==vsCMParameterKind. )
-            .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type.CodeType.Name })        })
-            });
+            .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type.CodeType.Name })})});
 
 
 
@@ -123,7 +124,39 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
             s.ShowDialog();
         }
 
+        public string GetVerb(CodeFunction2 d)
+        {
+     
+          
+            List<CodeAttribute2> codeAttributes2 = d.Attributes.OfType<CodeAttribute2>().ToList();
+       
+            var attrs = codeAttributes2.Select(attr => attr.Name).ToList();
+            var result = "Get";
+            if (attrs.Contains("HttpPost"))
+            {
+                result = "Post";
+            }
+            if (attrs.Contains("HttpPut"))
+            {
+                result = "Put";
+            }
 
+            if (attrs.Contains("HttpDelete"))
+            {
+                result = "Delete";
+            }
+
+            if (attrs.Contains("HttpPatch"))
+            {
+                result = "Patch";
+            }
+
+            if (attrs.Contains("HttpOption"))
+            {
+                result = "Option";
+            }
+            return result;
+        }
         public void InsertText(string textToInsert)
         {
             var provider = ServiceProvider.GetService(typeof(DTE)) as DTE2;
@@ -133,7 +166,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
             if (provider.UndoContext.IsOpen)
                 provider.UndoContext.Close();
 
-            provider.UndoContext.Open("Adding AAA");
+            provider.UndoContext.Open("Generate Action");
 
             try
             {
@@ -150,7 +183,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                     endPoint.ReplaceText(startPoint, textToInsert, (int)EnvDTE.vsEPReplaceTextOptions.vsEPReplaceTextAutoformat);
                 }
                 startPoint.SmartFormat(endPoint);
-                //  Autoformat(startPoint, endPoint);
+
             }
             finally
             {

@@ -3,7 +3,7 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
 {
     public class UrlActionGenerationTemplate : IGenerationTemplate
     {
-        public string Name => "Action URL";
+        public string Name => "Razor Action URL";
 
         public string Generate(ControllerAction action)
         {

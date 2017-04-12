@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -53,9 +59,11 @@
     <Compile Include="Models\ControllerAction.cs" />
     <Compile Include="Models\ControllerActionParameter.cs" />
     <Compile Include="Models\ControllerType.cs" />
-    <Compile Include="Models\GenerationTemplates\HtmlActionGenerationTemplate.cs" />
-    <Compile Include="Models\GenerationTemplates\HtmlActionLinkGenerationTemplate.cs" />
-    <Compile Include="Models\GenerationTemplates\UrlActionGenerationTemplate.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlActionGenerationTemplate.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\AjaxActionLinkGenerationTemplate.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlFromGenerationTemplate.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlActionLinkGenerationTemplate.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\UrlActionGenerationTemplate.cs" />
     <Compile Include="Models\IGenerationTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,7 +53,6 @@
   <ItemGroup>
     <Compile Include="ControllerActionGeneratorCommand\ControllerActionGeneratorVSCommand.cs" />
     <Compile Include="ControllerActionGeneratorCommand\ControllerActionGeneratorVSCommandPackage.cs" />
-    <Compile Include="Helpers\ManualAssemblyResolver.cs" />
     <Compile Include="Helpers\Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,9 +188,9 @@
     <ProjectReference Include="..\RazorPowerTools.ControllerActionGenerator\RazorPowerTools.ControllerActionGenerator.csproj">
       <Project>{37e406df-eb51-434e-867e-4c6a1ea28d85}</Project>
       <Name>RazorPowerTools.ControllerActionGenerator</Name>
-      <VSIXSubPath>Assemblies</VSIXSubPath>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

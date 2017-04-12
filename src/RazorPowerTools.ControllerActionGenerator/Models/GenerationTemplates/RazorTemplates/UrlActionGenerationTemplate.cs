@@ -3,7 +3,7 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
 {
     public class HtmlActionGenerationTemplate : IGenerationTemplate
     {
-        public string Name => "Html Action";
+        public string Name => "Razor Html Action";
 
         public string Generate(ControllerAction action)
         {

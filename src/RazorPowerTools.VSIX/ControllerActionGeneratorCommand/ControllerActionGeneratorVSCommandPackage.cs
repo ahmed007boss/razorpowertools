@@ -9,13 +9,14 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Win32;
-
+using System.Linq;
 namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
 {
     /// <summary>
@@ -35,8 +36,8 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
     /// To get loaded into VS, the package must be referred by &lt;Asset Type="Microsoft.VisualStudio.VsPackage" ...&gt; in .vsixmanifest file.
     /// </para>
     /// </remarks>
+    [ProvideBindingPath]
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [ProvideBindingPath(SubPath = "Assemblies")]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(ControllerActionGeneratorVSCommandPackage.PackageGuidString)]
