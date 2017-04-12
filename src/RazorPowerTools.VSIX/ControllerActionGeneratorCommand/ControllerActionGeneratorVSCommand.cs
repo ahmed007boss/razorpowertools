@@ -112,10 +112,10 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 {
                     ControllerName = d.Name,
                     Name = fun.Name,
-                    returnType = (fun.Type.CodeType as CodeClass2).Name,
+                    returnType = (fun.Type?.CodeType as CodeClass2)?.Name??"void",
                     ActionVerb = GetVerb(fun),
-                    Parameters = fun.Parameters.OfType<CodeParameter2>().ToList()
-                .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type.CodeType.Name })
+                    Parameters = fun.Parameters.OfType<CodeParameter2>()?.ToList()
+                .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type?.CodeType?.Name })
                 .ToList()
                 }).ToList()
                 });

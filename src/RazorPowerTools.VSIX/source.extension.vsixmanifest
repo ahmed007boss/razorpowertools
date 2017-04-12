@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="RazorPowerTools.Microsoft.5ff65f74-2bb1-43e9-b252-ac06c86c977e" Version="0.0.0.43" Language="en-US" Publisher="Ahmed Salah Mohamed" />
+    <Identity Id="RazorPowerTools.Microsoft.5ff65f74-2bb1-43e9-b252-ac06c86c977e" Version="0.0.0.44" Language="en-US" Publisher="Ahmed Salah Mohamed" />
     <DisplayName>Razor Power Tools</DisplayName>
     <Description xml:space="preserve">Tool Provided To increase Productivity while dealing with cshtml razor files</Description>
     <MoreInfo>https://github.com/ahmed007boss/razorpowertools</MoreInfo>
   </Metadata>
   <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0]" />
+    <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Community" />
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
@@ -15,5 +15,6 @@
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="RazorPowerTools.ControllerActionGenerator" Path="|RazorPowerTools.ControllerActionGenerator|" AssemblyName="|RazorPowerTools.ControllerActionGenerator;AssemblyName|" />
   </Assets>
 </PackageManifest>
