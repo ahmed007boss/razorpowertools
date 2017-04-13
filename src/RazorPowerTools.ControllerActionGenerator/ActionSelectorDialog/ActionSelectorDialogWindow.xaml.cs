@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualStudio.PlatformUI;
 using RazorPowerTools.ControllerActionGenerator.GenerationTemplates;
 
 namespace RazorPowerTools.ControllerActionGenerator
@@ -20,13 +21,13 @@ namespace RazorPowerTools.ControllerActionGenerator
     /// <summary>
     /// Interaction logic for ActionSelectorDialogWindow.xaml
     /// </summary>
-    public partial class ActionSelectorDialogWindow : UserControl
+    public partial class ActionSelectorDialogWindow : DialogWindow
     {
         public Action<string> ActionToDo { get; set; }
         public Action ActionToClose { get; set; }
         public ObservableCollection<IGenerationTemplate> Templates { get; set; }
         public ObservableCollection<ControllerType> Controllers { get; set; } = new ObservableCollection<ControllerType>();
-        public ActionSelectorDialogWindow(List<ControllerType> controllers, Action<string> actionToDo)
+        public ActionSelectorDialogWindow(List<ControllerType> controllers, Action<string> actionToDo) : base("Microsoft.VisualStudio.PlatformUI.DialogWindow")
         {
             try
             {

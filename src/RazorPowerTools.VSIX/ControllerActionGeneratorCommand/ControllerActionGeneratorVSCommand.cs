@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
+using System.Windows;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.PlatformUI;
@@ -120,20 +121,26 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 }).ToList()
                 });
 
+                IVsUIShell uiShell = (IVsUIShell)ServiceProvider.GetService(typeof(SVsUIShell));
+                uiShell.EnableModeless(0);
+                var xamlDialog = new ActionSelectorDialogWindow(t.ToList(), InsertText)
+                {
+                    Owner = Application.Current.MainWindow
+                };
+               
 
-                DialogWindow s = new DialogWindow();
+                xamlDialog.HasMinimizeButton = false;
+                xamlDialog.HasMaximizeButton = true;
+                xamlDialog.MaxHeight = 340;
+                xamlDialog.MinHeight = 340;
+                xamlDialog.MaxWidth = 800;
+                xamlDialog.MinWidth = 300;
+                xamlDialog.Title = "Generate From Action";
 
-
-                s.MaxHeight = 340;
-                s.MinHeight = 340;
-                s.MaxWidth = 800;
-                s.MinWidth = 300;
-                s.Title = "Generate From Action";
-                var content = new ActionSelectorDialogWindow(t.ToList(), InsertText);
-                content.ActionToClose = s.Close;
-                s.Content = content;
-                s.ShowDialog();
-
+                xamlDialog.ActionToClose = xamlDialog.Close;
+            
+                xamlDialog.ShowDialog();
+                uiShell.EnableModeless(1);
 
             }
             catch (Exception ex)
