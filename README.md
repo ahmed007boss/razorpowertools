@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## Welcome to Razor Power Tool
+This extension will add some tools to razor editor such as :
+### Generate Code From MVC Action to Razor File
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/0.png)
 
-You can use the [editor on GitHub](https://github.com/ahmed007boss/razorpowertools/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+##### Generate razor URL action from choosen action
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/1.PNG)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+##### Generate razor html action from choosen action
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/2.PNG)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+##### Generate razor html action link from choosen action
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/3.PNG)
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+##### Generate razor ajax action link from choosen action
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/4.PNG)
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+##### Generate razor html form from choosen action
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/5.PNG)
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ahmed007boss/razorpowertools/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
