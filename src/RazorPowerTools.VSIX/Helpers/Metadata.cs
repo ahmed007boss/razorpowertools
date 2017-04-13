@@ -33,9 +33,9 @@ namespace RazorPowerTools.VSIX
                     continue;
                 foreach (var ele in eles.CodeElements)
                 {
-                    if (ele is EnvDTE.CodeNamespace)
+                    if (ele is CodeNamespace)
                     {
-                        var ns = ele as EnvDTE.CodeNamespace;
+                        var ns = ele as CodeNamespace;
                         // run through classes
                         foreach (var property in ns.Members)
                         {

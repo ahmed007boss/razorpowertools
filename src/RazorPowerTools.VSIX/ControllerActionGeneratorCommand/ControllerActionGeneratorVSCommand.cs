@@ -180,12 +180,12 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         {
             var provider = ServiceProvider.GetService(typeof(DTE)) as DTE;
 
-            //if (provider == null || provider.ActiveDocument == null) return;
+            if (provider == null || provider.ActiveDocument == null) return;
 
-            //if (provider.UndoContext.IsOpen)
-            //    provider.UndoContext.Close();
+            if (provider.UndoContext.IsOpen)
+                provider.UndoContext.Close();
 
-            //provider.UndoContext.Open("Generate Action");
+            provider.UndoContext.Open("Generate Action");
 
             try
             {
@@ -199,14 +199,14 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 }
                 else
                 {
-                    endPoint.ReplaceText(startPoint, textToInsert, (int)EnvDTE.vsEPReplaceTextOptions.vsEPReplaceTextAutoformat);
+                    endPoint.ReplaceText(startPoint, textToInsert, (int)vsEPReplaceTextOptions.vsEPReplaceTextAutoformat);
                 }
-                startPoint.SmartFormat(endPoint);
-
+                //  startPoint.SmartFormat(endPoint);
+             
             }
             finally
             {
-                //    provider.UndoContext.Close();
+                    provider.UndoContext.Close();
             }
         }
     }
