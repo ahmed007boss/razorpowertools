@@ -131,7 +131,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
 
                 xamlDialog.HasMinimizeButton = false;
                 xamlDialog.HasMaximizeButton = true;
-                xamlDialog.MaxHeight = 340;
+                xamlDialog.MaxHeight = 440;
                 xamlDialog.MinHeight = 340;
                 xamlDialog.MaxWidth = 800;
                 xamlDialog.MinWidth = 300;

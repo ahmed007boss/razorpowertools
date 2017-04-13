@@ -3,10 +3,11 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
 {
     public class HtmlActionLinkGenerationTemplate : IGenerationTemplate
     {
-        public string Name => "Razor Html Action link";
+        public virtual string Name => "Razor Html Action link";
 
-        public string Generate(ControllerAction action)
+        public virtual string Generate(ControllerAction action)
         {
+          
             if (action.Parameters.Any())
             {
                 return $"@Html.ActionLink(\"Title Here\",\"{action.Name}\",\"{action.ControllerName}\", new {{ { string.Join(",", action.Parameters.Select(d => d.Name + " = \"\"")) } }})";

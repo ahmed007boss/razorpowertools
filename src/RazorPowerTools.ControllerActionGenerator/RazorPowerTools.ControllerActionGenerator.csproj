@@ -138,12 +138,15 @@
     <Compile Include="Models\ControllerAction.cs" />
     <Compile Include="Models\ControllerActionParameter.cs" />
     <Compile Include="Models\ControllerType.cs" />
+    <Compile Include="Models\GenerationTemplates\RazorTemplates\UrlStringGenerationTemplate.cs" />
     <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlActionGenerationTemplate.cs" />
     <Compile Include="Models\GenerationTemplates\RazorTemplates\AjaxActionLinkGenerationTemplate.cs" />
     <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlFromGenerationTemplate.cs" />
     <Compile Include="Models\GenerationTemplates\RazorTemplates\HtmlActionLinkGenerationTemplate.cs" />
     <Compile Include="Models\GenerationTemplates\RazorTemplates\UrlActionGenerationTemplate.cs" />
     <Compile Include="Models\IGenerationTemplate.cs" />
+    <Compile Include="Models\JSTemplates\JsAjaxLoadGenerationTemplate.cs" />
+    <Compile Include="Models\JSTemplates\JsAjaxCallGenerationTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

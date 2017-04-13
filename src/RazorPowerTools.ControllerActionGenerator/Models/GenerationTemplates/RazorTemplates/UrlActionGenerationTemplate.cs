@@ -3,9 +3,9 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
 {
     public class HtmlActionGenerationTemplate : IGenerationTemplate
     {
-        public string Name => "Razor Html Action";
+        public virtual string Name => "Razor Html Action";
 
-        public string Generate(ControllerAction action)
+        public virtual string Generate(ControllerAction action)
         {
             if (action.Parameters.Any())
             {
@@ -17,7 +17,7 @@ namespace RazorPowerTools.ControllerActionGenerator.GenerationTemplates
             }
         }
 
-        public override string ToString()
+        public  override string ToString()
         {
             return Name;
         }

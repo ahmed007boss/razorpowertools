@@ -9,11 +9,9 @@
                   WindowStartupLocation="CenterScreen"
              mc:Ignorable="d"  
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
-             d:DesignHeight="300" d:DesignWidth="300"
-      >
+             d:DesignHeight="300" d:DesignWidth="300">
 
-    <Grid >
-
+    <Grid>
         <StackPanel >
             <Grid Margin="6" >
                 <Grid.ColumnDefinitions>
@@ -67,14 +65,14 @@
                 </ComboBox>
             </Grid>
             <Label  Margin="6">Code</Label>
-            <TextBox MinLines="5" Margin="6"  x:Name="TextBox_result"></TextBox>
+            <vs:SearchTextBox MinLines="5" Margin="6" MinHeight="100"  x:Name="TextBox_result">-</vs:SearchTextBox>
             <StackPanel  Margin="6"   HorizontalAlignment="Right" Orientation="Horizontal">
                 <vs:DialogButton MinWidth="45" Click="Button_Click_1" Margin="0,0,6,0"  >Add</vs:DialogButton>
                 <vs:DialogButton  MinWidth="45" Click="Button_Click" Margin="0,0,6,0" >Cancel</vs:DialogButton>
 
             </StackPanel>
         </StackPanel>
-
+   
 
 
 
