@@ -103,31 +103,84 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
 
             try
             {
-                var x = ClassesMetadata.GetClasses().ToList();
-                var t = x.Select(d => new ControllerType
+                var controllersClasses = ClassesMetadata.GetClasses().ToList();
+
+                List<ControllerType> controllers = new List<ControllerType>();
+
+                foreach (var cnrtclass in controllersClasses)
                 {
-                    Name = d.Name,
-                    Functions = d.Children.OfType<CodeFunction2>().ToList()
-                    .Where(func => func.Access == vsCMAccess.vsCMAccessPublic && func.FunctionKind == vsCMFunction.vsCMFunctionFunction)
-                .Select(fun => new ControllerAction
-                {
-                    ControllerName = d.Name,
-                    Name = fun.Name,
-                    returnType = (fun.Type?.CodeType as CodeClass2)?.Name??"void",
-                    ActionVerb = GetVerb(fun),
-                    Parameters = fun.Parameters.OfType<CodeParameter2>()?.ToList()
-                .Select(prm => new ControllerActionParameter { Name = prm.Name, TypeName = prm.Type?.CodeType?.Name })
-                .ToList()
-                }).ToList()
-                });
+                    try
+                    {
+                        var newCnt = new ControllerType();
+
+
+                        newCnt.Name = cnrtclass.Name;
+                        newCnt.Functions = new List<ControllerAction>();
+                        #region Functions
+                        var funcClass = cnrtclass.Children.OfType<CodeFunction2>().Where(func => func.Access == vsCMAccess.vsCMAccessPublic && func.FunctionKind == vsCMFunction.vsCMFunctionFunction).ToList();
+                        foreach (var fun in funcClass)
+                        {
+                            try
+                            {
+                                var newCntaction = new ControllerAction();
+                                newCntaction.Name = fun.Name;
+                                newCntaction.ControllerName = newCnt.Name;
+                                newCntaction.Name = fun.Name;
+                                newCntaction.returnType = (fun.Type?.CodeType as CodeClass2)?.Name ?? "void";
+                                newCntaction.ActionVerb = GetVerb(fun);
+                                newCntaction.Parameters = new List<ControllerActionParameter>();
+                                var funParams = fun.Parameters.OfType<CodeParameter2>()?.ToList();
+                                foreach (var prm in funParams)
+                                {
+                                    try
+                                    {
+                                        ControllerActionParameter p = new ControllerActionParameter()
+                                        {
+                                            Name = prm.Name,
+                                            TypeName = prm?.Type?.CodeType?.Name
+                                        };
+                                        newCntaction.Parameters.Add(p);
+
+
+                                    }
+                                    catch (Exception e1)
+                                    {
+
+
+                                    };
+
+
+                                }
+
+                                newCnt.Functions.Add(newCntaction);
+                            }
+                            catch (Exception e2)
+                            {
+
+
+                            }
+                        }
+                        #endregion
+
+                        controllers.Add(newCnt);
+                    }
+                    catch (Exception e3)
+                    {
+
+
+                    }
+                }
+
+
+              
 
                 IVsUIShell uiShell = (IVsUIShell)ServiceProvider.GetService(typeof(SVsUIShell));
                 uiShell.EnableModeless(0);
-                var xamlDialog = new ActionSelectorDialogWindow(t.ToList(), InsertText)
+                var xamlDialog = new ActionSelectorDialogWindow(controllers, InsertText)
                 {
                     Owner = Application.Current.MainWindow
                 };
-               
+
 
                 xamlDialog.HasMinimizeButton = false;
                 xamlDialog.HasMaximizeButton = true;
@@ -138,7 +191,7 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                 xamlDialog.Title = "Generate From Action";
 
                 xamlDialog.ActionToClose = xamlDialog.Close;
-            
+
                 xamlDialog.ShowDialog();
                 uiShell.EnableModeless(1);
 
@@ -209,11 +262,11 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
                     endPoint.ReplaceText(startPoint, textToInsert, (int)vsEPReplaceTextOptions.vsEPReplaceTextAutoformat);
                 }
                 //  startPoint.SmartFormat(endPoint);
-             
+
             }
             finally
             {
-                    provider.UndoContext.Close();
+                provider.UndoContext.Close();
             }
         }
     }
