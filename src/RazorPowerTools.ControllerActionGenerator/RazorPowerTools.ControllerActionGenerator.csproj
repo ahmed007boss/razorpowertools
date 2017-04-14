@@ -148,9 +148,16 @@
     <Compile Include="Models\JSTemplates\JsAjaxLoadGenerationTemplate.cs" />
     <Compile Include="Models\JSTemplates\JsAjaxCallGenerationTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextDialog\TextDialogWindow.xaml.cs">
+      <DependentUpon>TextDialogWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="ActionSelectorDialog\ActionSelectorDialogWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TextDialog\TextDialogWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

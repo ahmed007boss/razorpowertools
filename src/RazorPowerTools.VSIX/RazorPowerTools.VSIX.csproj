@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ControllerActionGeneratorCommand\ControllerActionGeneratorVSCommand.cs" />
+    <Compile Include="ControllerActionGeneratorCommand\Command\MoveToParialViewVSCommand.cs" />
+    <Compile Include="ControllerActionGeneratorCommand\Command\ControllerActionGeneratorVSCommand.cs" />
     <Compile Include="ControllerActionGeneratorCommand\ControllerActionGeneratorVSCommandPackage.cs" />
     <Compile Include="Helpers\Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

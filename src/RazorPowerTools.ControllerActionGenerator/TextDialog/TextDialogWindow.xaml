@@ -1,0 +1,43 @@
+﻿<vs:DialogWindow x:Class="RazorPowerTools.ControllerActionGenerator.TextDialogWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RazorPowerTools.ControllerActionGenerator"
+             xmlns:vs="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
+         WindowStyle="ToolWindow"
+                  WindowStartupLocation="CenterScreen"
+             mc:Ignorable="d"  
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <StackPanel >
+            <Grid Margin="6" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+            <Grid  Margin="6"   >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Label_TextBox_Label" Grid.Column="0">Label</Label>
+                <TextBox   Grid.Column="1" x:Name="TextBox_result"    >
+                  
+                </TextBox>
+            </Grid>
+            <StackPanel  Margin="6"   HorizontalAlignment="Right" Orientation="Horizontal">
+                <vs:DialogButton  MinWidth="45" Click="Button_Click" Margin="0,0,6,0" >Cancel</vs:DialogButton>
+                <vs:DialogButton MinWidth="45" Click="Button_Click_1" Margin="0,0,6,0"  >Ok</vs:DialogButton>
+            </StackPanel>
+        </StackPanel>
+   
+
+
+
+    </Grid>
+</vs:DialogWindow>

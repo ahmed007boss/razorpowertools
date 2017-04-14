@@ -67,9 +67,10 @@ namespace RazorPowerTools.VSIX.ControllerActionGeneratorCommand
         /// where you can put all the initialization code that rely on services provided by VisualStudio.
         /// </summary>
         protected override void Initialize()
-       {         
-               ControllerActionGeneratorVSCommand.Initialize(this);
-                base.Initialize();          
+        {
+            ControllerActionGeneratorVSCommand.Initialize(this);
+            MoveToParialViewVSCommand.Initialize(this);
+            base.Initialize();
         }
 
         #endregion

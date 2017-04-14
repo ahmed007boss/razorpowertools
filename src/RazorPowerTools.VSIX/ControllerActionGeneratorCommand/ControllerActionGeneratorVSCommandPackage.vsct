@@ -37,8 +37,12 @@
          must be a menu. -->
     <Groups>
       <Group guid="guidControllerActionGeneratorVSCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-               <Parent guid="guidHtmlCtxMenu" id="IDM_HTMLCTXMENU"/>
+        <Parent guid="guidHtmlCtxMenu" id="IDM_HTMLCTXMENU"/>
       </Group>
+    
+     <!--<Group guid="guidMoveToParialViewVSCommandPackageCmdSet" id="MyMenuGroup" priority="0x0700">
+        <Parent guid="guidHtmlCtxMenu" id="IDM_HTMLCTXMENU"/>
+      </Group>-->
     </Groups>
 
     <!--Buttons section. -->
@@ -59,6 +63,14 @@
           <ButtonText>Generate From Action</ButtonText>
         </Strings>
       </Button>
+
+      <Button guid="guidMoveToParialViewVSCommandPackageCmdSet" id="MoveToParialViewVSCommandVSCommandId" priority="0x0200" type="Button">
+        <Parent guid="guidControllerActionGeneratorVSCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Move To New Parial View</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -76,18 +88,25 @@
         key1="R" mod1="CONTROL"  key2="G" mod2="CONTROL" editor="guidVSStd97" />
   </KeyBindings>
   <Symbols>
+     <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidControllerActionGeneratorVSCommandPackageCmdSet" value="{055ce90c-fd63-416a-b404-30c12b67b804}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="ControllerActionGeneratorVSCommandId" value="0x0100" />
+    </GuidSymbol>
+    <GuidSymbol name="guidMoveToParialViewVSCommandPackageCmdSet" value="{C4018B26-7D98-4E02-8B4B-EC4000E510EB}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="MoveToParialViewVSCommandVSCommandId" value="0x0200" />
+    </GuidSymbol>
+      
+    
     <GuidSymbol name="guidHtmlCtxMenu" value="{78F03954-2FB8-4087-8CE7-59D71710B3BB}">
       <IDSymbol name="IDM_HTMLCTXMENU" value="1" />
     </GuidSymbol>
     <!-- This is the package guid. -->
     <GuidSymbol name="guidControllerActionGeneratorVSCommandPackage" value="{4cc58039-371d-4373-93a8-90f84ec7488d}" />
 
-    
-    <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidControllerActionGeneratorVSCommandPackageCmdSet" value="{055ce90c-fd63-416a-b404-30c12b67b804}">
-      <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="ControllerActionGeneratorVSCommandId" value="0x0100" />
-    </GuidSymbol>
+
+   
 
     <GuidSymbol name="guidImages" value="{3600adff-c55b-4b11-b4b1-ef9e522818e8}" >
       <IDSymbol name="bmpPic1" value="1" />
