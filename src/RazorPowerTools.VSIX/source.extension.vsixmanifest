@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="RazorPowerTools.Microsoft.5ff65f74-2bb1-43e9-b252-ac06c86c977e" Version="0.0.0.47" Language="en-US" Publisher="Ahmed Salah Mohamed" />
+    <Identity Id="RazorPowerTools.Microsoft.5ff65f74-2bb1-43e9-b252-ac06c86c977e" Version="0.0.0.48" Language="en-US" Publisher="Ahmed Salah Mohamed" />
     <DisplayName>Razor Power Tools</DisplayName>
     <Description xml:space="preserve">Tool Provided To increase Productivity while dealing with cshtml razor files</Description>
     <MoreInfo>https://github.com/ahmed007boss/razorpowertools</MoreInfo>
