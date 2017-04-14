@@ -183,6 +183,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControllerActionGeneratorCommand\Resources\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="ControllerActionGeneratorCommand\Resources\ControllerActionGeneratorVSCommand.png" />
     <Content Include="ControllerActionGeneratorCommand\Resources\ControllerActionGeneratorVSCommandPackage.ico" />
   </ItemGroup>

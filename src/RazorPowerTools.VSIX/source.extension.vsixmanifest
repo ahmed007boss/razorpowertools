@@ -5,6 +5,8 @@
     <DisplayName>Razor Power Tools</DisplayName>
     <Description xml:space="preserve">Tool Provided To increase Productivity while dealing with cshtml razor files</Description>
     <MoreInfo>https://github.com/ahmed007boss/razorpowertools</MoreInfo>
+    <Icon>ControllerActionGeneratorCommand\Resources\Logo.png</Icon>
+    <PreviewImage>ControllerActionGeneratorCommand\Resources\Logo.png</PreviewImage>
   </Metadata>
   <Installation>
     <InstallationTarget Version="[14.0,15.0)" Id="Microsoft.VisualStudio.Community" />
