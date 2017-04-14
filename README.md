@@ -1,5 +1,10 @@
 ## Welcome to Razor Power Tool
 This extension will add some tools to razor editor such as :
+
+### Move to New Partial View
+![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/moveToNewRazorFile.png)
+
+
 ### Generate Code From MVC Action to Razor File
 ![alt tag](https://raw.githubusercontent.com/ahmed007boss/razorpowertools/master/doc/readme-img/0.png)
 
